@@ -1,0 +1,147 @@
+.container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+}
+.global{
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    margin: 50px auto;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 8% 6% 6% 6%;
+}
+
+label, h4{
+    color: black;
+    font-size: 20px;
+    font-family: Oswald, serif;
+    font-weight: 500;
+}
+.fileContent{
+    position: absolute;
+    top: 10%;
+}
+.col-4{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+.gallery{
+    position: absolute;
+    top: 10%;
+}
+.btn{
+    background-color: transparent;
+    border: none;
+    color:darkred ;
+    font-size: 18px;
+    font-family: Oswald, serif;
+    font-weight: 500;
+    padding: 0;
+
+}
+.btn:hover{
+    cursor: pointer;
+    color: red;
+    transition: 0.5s;
+}
+
+.container .item {
+    position: relative;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+
+.container .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Transparent by default */
+    z-index: 1;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    pointer-events: none; /* Allow pointer events to go through the pseudo-element */
+}
+
+.container .item:hover::before {
+    background-color: rgba(0, 0, 0, 0.5); /* Add your desired overlay color and opacity */
+}
+
+.container .one {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.checkbox {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    display: none;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.container img:hover{
+    cursor: pointer;
+}
+
+.container .item:hover .checkbox {
+    display: block;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 22px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: green; /* Change to the desired color */
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust columns for smaller screens */
+    }
+}
+@media (min-width: 768px) {
+    .fileContent{
+        position: absolute;
+        top: 12%;
+    }
+    .gallery{
+        position: absolute;
+        top: 7%;
+    }
+    .col-4{
+        position: absolute;
+        top: 12%;
+        right: 10%;
+    }
+}
+@media (min-width: 900px) {
+    .fileContent{
+        position: absolute;
+        top: 12%;
+    }
+    .gallery{
+        position: absolute;
+        top: 7%;
+    }
+    .col-4{
+        position: absolute;
+        top: 12%;
+        right: 10%;
+    }
+}
